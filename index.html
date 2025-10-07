@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padona Matabaro Jason - Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3c40;
+            --secondary: #2d5d50;
+            --accent: #4a9b7f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.05"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 14px 35px;
+        }
+
+        .hero-btn.outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .hero-btn.outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-percentage {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--light);
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--light-gray);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 80px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--accent);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            transform: rotate(45deg);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content h5 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+            color: var(--gray);
+            position: relative;
+        }
+
+        .timeline-content li::marker {
+            color: var(--accent);
+        }
+
+        .timeline-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .timeline-link:hover {
+            color: var(--primary);
+        }
+
+        .timeline-link i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(74, 155, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .service-card h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 60, 64, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .portfolio-content h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-content p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .portfolio-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: var(--light);
+        }
+
+        .certifications-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certification-category {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+        }
+
+        .category-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .certification-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .certification-item:hover {
+            background: rgba(74, 155, 127, 0.05);
+            border-color: rgba(74, 155, 127, 0.2);
+            transform: translateX(5px);
+        }
+
+        .certification-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(74, 155, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .certification-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .certification-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            line-height: 1.4;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .certification-link:hover {
+            color: var(--accent);
+        }
+
+        .certification-org {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Volunteer Section */
+        .volunteer {
+            background: white;
+        }
+
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .volunteer-card {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .volunteer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .volunteer-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(74, 155, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .volunteer-date {
+            background: var(--accent);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .volunteer-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .volunteer-content h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .volunteer-content h5 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .volunteer-location {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .volunteer-location::before {
+            content: "📍";
+            font-size: 0.8rem;
+        }
+
+        .volunteer-description {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .volunteer-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .volunteer-link:hover {
+            color: var(--primary);
+        }
+
+        .volunteer-link i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+
+        /* Languages Section */
+        .languages {
+            background: var(--light);
+        }
+
+        .languages-container {
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .language-item {
+            margin-bottom: 30px;
+        }
+
+        .language-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .language-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .language-name i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .language-level {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .language-bar {
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+
+        .languages-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .summary-item {
+            background: white;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .summary-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .summary-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .summary-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(74, 155, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-details h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(74, 155, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(74, 155, 127, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-left: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-bottom i {
+            color: #e74c3c;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .certification-category,
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                padding: 20px 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 15px 0;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                margin-top: 20px;
+                justify-content: center;
+            }
+
+            .footer-links li {
+                margin: 0 10px;
+            }
+
+            .experience-timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline-date {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+
+            .volunteer-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .languages-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-item {
+                padding: 20px 15px;
+            }
+
+            .summary-number {
+                font-size: 2rem;
+            }
+
+            .certification-item,
+            .volunteer-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 0;
+            }
+
+            .certification-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .certification-icon {
+                align-self: center;
+            }
+
+            .language-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .languages-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">Padona Matabaro Jason</a>
+                <button class="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li class="nav-item"><a href="#volunteer" class="nav-link">Volunteer</a></li>
+                    <li class="nav-item"><a href="#languages" class="nav-link">Languages</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Welcome to my portfolio</div>
+                <h1 class="hero-title">Padona Matabaro Jason</h1>
+                <h2 class="hero-subtitle">Environmental Data Management & Geospatial Data Analyst</h2>
+                <p class="hero-description">
+                    Specialist in spatial data analysis, Disaster Risk Reduction (DRR), anticipatory action, community resilience, community-based early warning systems, monitoring, evaluation and learning (MEAL), with expertise in GIS application development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn hero-btn btn-primary">View my projects</a>
+                    <a href="#contact" class="btn hero-btn outline">Contact me</a>
+                </div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate about sustainable resource management and data analysis for decision-making
+                </p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/profile-pic.jpg" alt="Padona Matabaro Jason" class="profile-image">
+                </div>
+                <div class="about-text">
+                    <h3>Data Management & Geospatial Data Analyst</h3>
+                    <p>
+                        Holder of a Master's degree in Environmental Sciences and Natural Resource Management, 
+                        I stand out for my commitment to research, sustainable resource management, and expertise 
+                        in Disaster Risk Reduction (DRR), anticipatory action, and MERL.
+                    </p>
+                    <p>
+                        I master numerous tools for the collection, processing, and visualization of spatial and 
+                        non-spatial data: Kobo Toolbox, Survey123, ODK, FieldMaps, ArcGIS Pro, QGIS, 
+                        Erdas Imagine, ENVI, Maxent, Spatial Lite, Power BI, R, Python, Google Earth Pro, 
+                        Shiny dashboards, GeoApp.
+                    </p>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h4>Technical Skills</h4>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Geographic database management</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">GIS solutions development</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Programming (Python, R)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Professional Skills</h4>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Monitoring, Evaluation & MEAL</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Disaster Risk Reduction (DRR)</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Cartography and data visualization</span>
+                                    <span class="skill-percentage">93%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 93%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Experience Section -->
+<section class="experience" id="experience">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">
+                A rich journey through diverse missions in data management and spatial analysis
+            </p>
+        </div>
+        <div class="experience-timeline">
+            
+            <!-- Experience 1 -->
+            <div class="timeline-item">
+                <div class="timeline-date">09/2025 – Present</div>
+                <div class="timeline-content">
+                    <h4>Mentor – Data in Humanitarian Work</h4>
+                    <h5>Humanitarian OpenStreetMap Team (HOT), Remote</h5>
+                    <p>Technical mentoring for humanitarian professionals, capacity building in open mapping and disaster response.</p>
+                    <ul>
+                        <li>Developed training modules on web mapping, OpenStreetMap tools, and humanitarian standards.</li>
+                        <li>Supervised practical exercises: mapathons, data validation, quality assurance.</li>
+                        <li>Integrated emerging technologies (AI, machine learning) for rapid disaster assessment.</li>
+                        <li>Established monitoring frameworks to measure mentee progress and program impact.</li>
+                    </ul>
+                    <a href="https://www.hotosm.org/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 2 -->
+            <div class="timeline-item">
+                <div class="timeline-date">08/2025 – Present</div>
+                <div class="timeline-content">
+                    <h4>Global Monitoring, Evaluation & Learning (MEL)</h4>
+                    <h5>Rikolto (International NGO)</h5>
+                    <p>Support to the meta-analysis of agricultural survey results across countries, ensuring data quality and consistency.</p>
+                    <ul>
+                        <li>Needs assessment and co-design of data collection tools with regional teams.</li>
+                        <li>Cleaning, harmonizing, and structuring multi-country and multi-year datasets.</li>
+                        <li>Descriptive and comparative statistical analyses by region, year, and program.</li>
+                        <li>Development of interactive dashboards (Excel, Power BI, Shiny).</li>
+                        <li>Automation of analysis workflows (Python, R) using advanced methods (segmentation, correlations, predictive modeling).</li>
+                        <li>Conducted semi-structured interviews with country teams to capture best practices.</li>
+                        <li>Drafted synthesis reports and strategic recommendations.</li>
+                        <li>Presented findings in learning workshops and peer-learning sessions.</li>
+                        <li>Trained and coached local teams in data management and analysis.</li>
+                    </ul>
+                    <a href="https://www.rikolto.org/issues-and-projects" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 3 -->
+            <div class="timeline-item">
+                <div class="timeline-date">04/2025 – Present</div>
+                <div class="timeline-content">
+                    <h4>Field Data Collection Coordinator</h4>
+                    <h5>Catholic Agency for Overseas Development (CAFOD), North Kivu / Kalemie / Uvira / Kindu / Kailo (DRC)</h5>
+                    <p>Design and adaptation of data collection methodologies according to local contexts.</p>
+                    <ul>
+                        <li>Coordinated logistics, stakeholder mapping, and daily planning.</li>
+                        <li>Supervised identification of key infrastructures and collection of disaggregated data.</li>
+                        <li>Led field visits, and visual and geographic documentation of critical sites.</li>
+                        <li>Facilitated focus group discussions (women, youth, people with disabilities) and ensured quality follow-up.</li>
+                        <li>Integrated marginalized voices into risk and needs analysis.</li>
+                        <li>Oversaw data triangulation and inter-site consistency validation.</li>
+                        <li>Applied methodological guides (BEAT, UNIGOM, CAFOD) and provided daily coaching to field teams.</li>
+                        <li>Delivered cleaned datasets and contributed to report drafting and quality review.</li>
+                    </ul>
+                    <a href="https://cafod.org.uk/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 4 -->
+            <div class="timeline-item">
+                <div class="timeline-date">03/2025 – 07/2025</div>
+                <div class="timeline-content">
+                    <h4>Consultant – DRR, EWS & Humanitarian Advocacy</h4>
+                    <h5>Catholic Agency for Overseas Development (CAFOD), South/North Kivu, Kalemie, Maniema</h5>
+                    <p>Capacity building of CAFOD partners to integrate Disaster Risk Reduction (DRR) and Early Warning Systems (EWS) into their programs.</p>
+                    <ul>
+                        <li>Designed and facilitated workshops on DRR, community-based EWS, and humanitarian advocacy.</li>
+                        <li>Conducted community-level risk and vulnerability analyses.</li>
+                        <li>Integrated DRR into project strategic and operational planning.</li>
+                        <li>Established multi-hazard early warning systems.</li>
+                        <li>Supported humanitarian advocacy through stakeholder engagement.</li>
+                        <li>Strengthened partner and field team capacities in risk-prone areas.</li>
+                        <li>Monitored and evaluated resilience and risk reduction strategies.</li>
+                        <li>Co-created community accountability mechanisms (design thinking approach).</li>
+                        <li>Documented and shared best practices to enhance program effectiveness.</li>
+                    </ul>
+                    <a href="https://cafod.org.uk/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 5 -->
+            <div class="timeline-item">
+                <div class="timeline-date">12/2024 – Present</div>
+                <div class="timeline-content">
+                    <h4>Consultant – DRR, Flood Anticipation & Risk Mapping</h4>
+                    <h5>GeostratDRC</h5>
+                    <p>Expert in flood risk analysis and development of mapping tools for disaster management.</p>
+                    <ul>
+                        <li>Exploratory analysis of ecological and socio-economic data for flood-prone areas.</li>
+                        <li>Integrated multisource data (satellite imagery, scientific measurements, VMS/AIS).</li>
+                        <li>Developed machine learning models to predict climate impacts.</li>
+                        <li>Produced geostatistical maps of ecosystem services and environmental pressures.</li>
+                        <li>Designed geospatial databases, identified data gaps, and proposed acquisition strategies.</li>
+                        <li>Created interactive dashboards (QGIS, ArcGIS, Python, R) for stakeholder communication.</li>
+                        <li>Produced thematic maps and decision-oriented reports.</li>
+                        <li>Trained and supported local actors in GIS tools and applications.</li>
+                        <li>Provided advisory on integrating anticipatory actions into flood risk management.</li>
+                    </ul>
+                    <a href="https://geostratdrc.com/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 6 -->
+            <div class="timeline-item">
+                <div class="timeline-date">09/2024 – Present</div>
+                <div class="timeline-content">
+                    <h4>Consultant – Data Analyst & GIS Expert</h4>
+                    <h5>Tomkulak Consortium</h5>
+                    <p>Development of geospatial solutions for identifying critical infrastructure sites in the DRC.</p>
+                    <ul>
+                        <li>Developed strategic maps to identify critical infrastructure sites in the DRC.</li>
+                        <li>Performed advanced spatial analyses to assess project feasibility and impact.</li>
+                        <li>Produced cartographic data and analyses for strategic decision-making.</li>
+                        <li>Worked in interdisciplinary teams for integrated and sustainable solutions.</li>
+                        <li>Raised stakeholder awareness through mapping and spatial analysis.</li>
+                        <li>Coordinated collection and integration of multisource data.</li>
+                        <li>Automated GIS workflows and Python scripts for analytical optimization.</li>
+                        <li>Provided training and technical support to project teams on GIS tools.</li>
+                        <li>Monitored spatial indicators and produced regular reports for management.</li>
+                        <li>Supported environmental and social impact studies through mapping.</li>
+                    </ul>
+                    <a href="https://tomkulak.com/about-page/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 7 -->
+            <div class="timeline-item">
+                <div class="timeline-date">01/2022 – 09/2023</div>
+                <div class="timeline-content">
+                    <h4>Monitoring and Evaluation Officer</h4>
+                    <h5>Observatory of Forests and Mountain Landscapes, Bukavu</h5>
+                    <p>Design and implementation of monitoring and evaluation systems for conservation and species protection.</p>
+                    <ul>
+                        <li>Developed M&E systems for biodiversity conservation and species protection.</li>
+                        <li>Monitored indigenous population movements in Kahuzi-Biega National Park and assessed human rights violations.</li>
+                        <li>Applied statistical methods to detect patterns of violence in conflict areas.</li>
+                        <li>Coordinated data collection with field teams.</li>
+                        <li>Facilitated training workshops for local partners on M&E methods and digital tools.</li>
+                        <li>Analyzed longitudinal data to track biodiversity and social impacts.</li>
+                        <li>Prepared reports and presentations for stakeholders and donors.</li>
+                        <li>Provided adaptive management recommendations based on findings.</li>
+                    </ul>
+                    <a href="https://uea.ac.cd/presentation_fac_agro/#projets-de-recherche-et-developpement-facagro" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 8 -->
+            <div class="timeline-item">
+                <div class="timeline-date">07/2022 – Present</div>
+                <div class="timeline-content">
+                    <h4>Geo-AI & GIS Developer</h4>
+                    <h5>Pro-Active Safety Solutions – DRC, Goma (Independent Consultant)</h5>
+                    <p>Design and facilitation of customized training on geospatial tools.</p>
+                    <ul>
+                        <li>Developed and delivered customized training on GIS and remote sensing tools.</li>
+                        <li>Created pedagogical materials (manuals, video tutorials, e-learning modules).</li>
+                        <li>Provided expert consulting on GIS applications, spatial analysis, and natural resource management.</li>
+                        <li>Designed geospatial workflows for environmental monitoring and risk assessment.</li>
+                        <li>Applied AI and machine learning tools for satellite image analysis.</li>
+                        <li>Assessed needs to tailor training content to stakeholder objectives.</li>
+                        <li>Supported local institutions and NGOs in integrating geospatial technologies.</li>
+                        <li>Ensured data quality and validation for spatial datasets.</li>
+                        <li>Led hands-on workshops to strengthen local capacity in spatial analysis and AI.</li>
+                    </ul>
+                    <a href="https://passdrc.com/#home" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 9 -->
+            <div class="timeline-item">
+                <div class="timeline-date">09/2022 – 12/2022</div>
+                <div class="timeline-content">
+                    <h4>GIS Officer</h4>
+                    <h5>Union for the Empowerment of Indigenous Women, Kalehe, Bunyakiri</h5>
+                    <p>Training land officers in digital data collection and community land mapping.</p>
+                    <ul>
+                        <li>Trained land officers in digital data collection (Garmin GPS, KoboCollect, ODK).</li>
+                        <li>Collected geospatial data on landmarks, farmland parcels, and administrative boundaries.</li>
+                        <li>Digitized natural boundaries between communities using Google Earth Pro.</li>
+                        <li>Supported community land mapping to defend indigenous women’s land rights.</li>
+                        <li>Ensured data quality and validation during field campaigns.</li>
+                        <li>Facilitated capacity-building workshops in GIS and data management.</li>
+                        <li>Integrated spatial data into organizational monitoring and reporting systems.</li>
+                        <li>Worked with community leaders to ensure data accuracy.</li>
+                        <li>Produced thematic maps for projects and stakeholder engagement.</li>
+                    </ul>
+                    <a href="https://www.uefardc.org/index.php" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+            <!-- Experience 10 -->
+            <div class="timeline-item">
+                <div class="timeline-date">09/2022 – 12/2022</div>
+                <div class="timeline-content">
+                    <h4>Assistant Trainer – Data Collection and Analysis Tools</h4>
+                    <h5>Faculty of Agronomic and Environmental Sciences, UEA, Bukavu</h5>
+                    <p>Contributed to the design of data collection methodologies adapted to local contexts.</p>
+                    <ul>
+                        <li>Designed context-adapted data collection methodologies.</li>
+                        <li>Trained students and staff on digital collection tools (KoboCollect, ODK, Survey123).</li>
+                        <li>Introduced sampling methods and basic statistical analysis.</li>
+                        <li>Supported training on GIS and remote sensing software: ArcGIS Pro, QGIS, Google Earth, ENVI.</li>
+                        <li>Ensured data quality and validation during field campaigns.</li>
+                        <li>Organized workshops on integrating spatial data into research projects.</li>
+                        <li>Coached participants on R, SPSS, and STATA for data analysis.</li>
+                        <li>Participated in collaborative data analysis and report drafting.</li>
+                        <li>Developed learning materials and practical exercises for capacity building.</li>
+                    </ul>
+                    <a href="https://uea.ac.cd/recherche/" target="_blank" class="timeline-link">Visit organization <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">My Services</h2>
+                <p class="section-subtitle">
+                    Specialist in data management, GIS, spatial analysis, MEAL, DRR and technical training
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h4>Monitoring & Evaluation (MEAL)</h4>
+                    <p>Design of MEAL systems, impact analysis, reporting and capitalization for humanitarian and environmental projects.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h4>Geospatial Analysis & Cartography</h4>
+                    <p>Production of strategic maps, spatial modeling, GIS database management and interactive visualization.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Risk Management & DRR</h4>
+                    <p>Risk assessment, anticipatory planning, early warning systems and DRR training for communities and NGOs.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Data Collection & Analysis</h4>
+                    <p>Development of collection tools (Kobo, ODK, Survey123), cleaning, structuring and advanced statistical analysis (Python, R).</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Dashboards & Visualization</h4>
+                    <p>Creation of interactive dashboards (Power BI, Shiny, Excel) for monitoring, communication and decision-making.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Training & Capacity Building</h4>
+                    <p>Workshop facilitation, module development, technical coaching in GIS, MEAL, DRR and project management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">
+                    Discover my achievements in data analysis, cartography, monitoring, DRR and environmental management
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="img/por1.jpg" alt="Padona Matabaro Jason" class="profile-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h4>Mapping of Critical Infrastructure in DRC</h4>
+                                <p>GIS & Mapping</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="img/portfolio-evaluation-2.jpg" alt="Padona Matabaro Jason" class="profile-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h4>Meta-analysis of International Agricultural Surveys</h4>
+                                <p>Data Analysis</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="img/portfolio-gis-2.jpg" alt="Padona Matabaro Jason" class="profile-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h4>Spatial Modeling of Flood Risks</h4>
+                                <p>GIS & Mapping</p>
+                                <a href="#" class="portfolio-link">
+                                    <i class="fas fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Certifications Section -->
+<section class="certifications" id="certifications">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Certifications & Formations</h2>
+            <p class="section-subtitle">
+                Mes certifications professionnelles et formations continues dans les domaines du SIG, 
+                de la gestion de données, de la réduction des risques et de l'environnement
+            </p>
+        </div>
+        
+        <div class="certifications-grid">
+            <!-- Catégorie : Gestion de Données et Analyse -->
+            <div class="certification-category">
+                <h3 class="category-title">
+                    <i class="fas fa-database category-icon"></i>
+                    Gestion de Données & Analyse
+                </h3>
+                <div class="certification-items">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1nM2-4cdSIGBbAVzUv0Y4Ivl1TDgxNdIM/view?usp=sharing" target="_blank" class="certification-link">
+                                Data Management & Analysis for Cluster Information Management
+                            </a>
+                            <span class="certification-org">UNICEF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1qlKoy4l7yEYOE_8yzQIc7880-JLlIVbd/view?usp=sharing" target="_blank" class="certification-link">
+                                Planning for Data Collection, Processing, and Analysis
+                            </a>
+                            <span class="certification-org">UNICEF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1uHT3udR3bajjbn7KzJElfixv_C-PxtiR/view?usp=sharing" target="_blank" class="certification-link">
+                                Developing & Maintaining Data Management Systems
+                            </a>
+                            <span class="certification-org">UNICEF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1rDmNXW-BHEg30O3ucYkcKvpJy8Vu5LM6/view?usp=sharing" target="_blank" class="certification-link">
+                                Collating and Cleaning Data
+                            </a>
+                            <span class="certification-org">UNICEF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1qi01fQ7fMQKnoJPQWCZtkOoAEESHQEQA/view?usp=sharing" target="_blank" class="certification-link">
+                                Designing Qualitative Research for M&E
+                            </a>
+                            <span class="certification-org">USAID</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Catégorie : SIG et Télédétection -->
+            <div class="certification-category">
+                <h3 class="category-title">
+                    <i class="fas fa-globe-americas category-icon"></i>
+                    SIG & Télédétection
+                </h3>
+                <div class="certification-items">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1-sN-o3EB8UXynM9NqwPJoTdzwo3VOVYx/view?usp=sharing" target="_blank" class="certification-link">
+                                Python for Everyone
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/15k3nKZgoa1SadtPdIEGgNk2m0DSko89c/view?usp=sharing" target="_blank" class="certification-link">
+                                Spatial Data Management
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1jT26odFOQnuwz_kj4_0Y7wBrWCCgccEB/view?usp=sharing" target="_blank" class="certification-link">
+                                Remote Sensing and Imagery Analysis
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1O-ukogQqdEgZO2bSLhKnScnymZpreGKd/view?usp=sharing" target="_blank" class="certification-link">
+                                Regression Analysis: Performing Random Forest Regression Using ArcGIS Pro
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1_qRPk2oBKQdwFBDYA4umsggsY6fJc8J8/view?usp=sharing" target="_blank" class="certification-link">
+                                Performing Change Detection Using Raster Functions
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1qJrU1fcpaFJpUyGnK05paXdHrn9e1TTh/view?usp=sharing" target="_blank" class="certification-link">
+                                Classifying Objects Using Deep Learning
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1lGwjbMLPNykhhyuFF3Pf1dF6IoWRzNvG/view?usp=sharing" target="_blank" class="certification-link">
+                                Crime Incidents Analysis with ArcGIS Insights
+                            </a>
+                            <span class="certification-org">ESRI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1-igbVpvrbiospGGKDjWtf8w2cX6lLoOr/view?usp=sharing" target="_blank" class="certification-link">
+                                Forest Mapping and Monitoring Tools for Indigenous Peoples and Local Communities
+                            </a>
+                            <span class="certification-org">UNDP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1L5wyJa0bVwZFBj8TTORZDSoCGHGRZTnB/view?usp=sharing" target="_blank" class="certification-link">
+                                Introduction to Collect Earth Online
+                            </a>
+                            <span class="certification-org">University of Twente</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1tGe49CMgnswbjZhFTgBMcELLogkS8uyC/view?usp=sharing" target="_blank" class="certification-link">
+                                GeoAI Web App Building with Open-Source Tools
+                            </a>
+                            <span class="certification-org">University of Twente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Catégorie : Réduction des Risques et Action Humanitaire -->
+            <div class="certification-category">
+                <h3 class="category-title">
+                    <i class="fas fa-shield-alt category-icon"></i>
+                    Réduction des Risques & Action Humanitaire
+                </h3>
+                <div class="certification-items">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1z6HeHclh6kPY0npKfq36d8BDforLPGiB/view?usp=sharing" target="_blank" class="certification-link">
+                                Disaster Risk Reduction Anticipatory Action & Humanitarian Advocacy
+                            </a>
+                            <span class="certification-org">START NETWORK</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/198rfTrX47tWEuF7TgGpAU47j-SB4DOv5/view?usp=sharing" target="_blank" class="certification-link">
+                                Develop and implement anticipatory action plans
+                            </a>
+                            <span class="certification-org">International Federation of Red Cross and Red Crescent Societies</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1fhHzdulFcEsSO6WBXJtAZSjxlq6MW4Ie/view?usp=sharing" target="_blank" class="certification-link">
+                                Developing Information Management-Capacity Building Materials
+                            </a>
+                            <span class="certification-org">Global Nutrition Cluster</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Catégorie : Environnement et Développement Durable -->
+            <div class="certification-category">
+                <h3 class="category-title">
+                    <i class="fas fa-leaf category-icon"></i>
+                    Environnement & Développement Durable
+                </h3>
+                <div class="certification-items">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1qoh0wQ7AhjqlwSk2zQqbR3RkPRfdFT5Q/view?usp=sharing" target="_blank" class="certification-link">
+                                Ecosystem-based Adaptation
+                            </a>
+                            <span class="certification-org">GIZ, IUCN</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1YfJ2qHyi-wUdmCJOdPwjYyMsnD_x4mLA/view?usp=sharing" target="_blank" class="certification-link">
+                                Environmental Impact Assessment
+                            </a>
+                            <span class="certification-org">FABLAB/UEA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-forest"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/12XWAahjXIcHCE1GuMHJ35dVomNL1J7Pz/view?usp=sharing" target="_blank" class="certification-link">
+                                Urban and Peri-urban Forestry
+                            </a>
+                            <span class="certification-org">FAO</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1PCYfVF5b-h7hY2euCI_PjKBcsxmvTvL-/view?usp=sharing" target="_blank" class="certification-link">
+                                An Introduction to Urban and Peri-urban Forestry
+                            </a>
+                            <span class="certification-org">FAO</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1AxQMiENeD4yWgvyqlZaph03YZColtVKc/view?usp=sharing" target="_blank" class="certification-link">
+                                Children's Environmental Health
+                            </a>
+                            <span class="certification-org">UNICEF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/13szNLFQ_9P8KEcCyohF_bFNRQX3_s8fR/view?usp=drive_link" target="_blank" class="certification-link">
+                                Gender-responsive, Disability- and Socially-inclusive Water Resource Management
+                            </a>
+                            <span class="certification-org">FAO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Catégorie : Genre et Inclusion -->
+            <div class="certification-category">
+                <h3 class="category-title">
+                    <i class="fas fa-venus-mars category-icon"></i>
+                    Genre & Inclusion
+                </h3>
+                <div class="certification-items">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1DEcq5J34YMjIaN2m3m1B2ZgxHvaUxVZ-/view?usp=sharing" target="_blank" class="certification-link">
+                                Gender and Biodiversity Decision-Making
+                            </a>
+                            <span class="certification-org">UNDP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-venus-double"></i>
+                        </div>
+                        <div class="certification-content">
+                            <a href="https://drive.google.com/file/d/1kT9LEygHiR5mqnvPQUsLsEWaQdM5U2UO/view?usp=sharing" target="_blank" class="certification-link">
+                                Gender Equality, Women's Empowerment, and Leadership
+                            </a>
+                            <span class="certification-org">UN Biodiversity</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Volunteer Work Section -->
+<section class="volunteer" id="volunteer">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Volunteer Engagements</h2>
+            <p class="section-subtitle">
+                Active contribution to international initiatives for climate action, research, and women's empowerment
+            </p>
+        </div>
+        
+        <div class="volunteer-grid">
+            <!-- Engagement 1 -->
+            <div class="volunteer-card" data-aos="fade-up">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <div class="volunteer-date">10/2024 – Present</div>
+                </div>
+                <div class="volunteer-content">
+                    <h4>Climate Expert</h4>
+                    <h5>Climate Crisis Commission - IUCN</h5>
+                    <p class="volunteer-location">Switzerland</p>
+                    <p class="volunteer-description">
+                        Contributing to the work of the Climate Crisis Commission within the International Union for Conservation of Nature.
+                    </p>
+                    <a href="https://iucn.org/our-union/commissions/climate-crisis-commission" target="_blank" class="volunteer-link">
+                        Visit organization <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Engagement 2 -->
+            <div class="volunteer-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="volunteer-date">10/2024 – Present</div>
+                </div>
+                <div class="volunteer-content">
+                    <h4>Reviewer and Researcher</h4>
+                    <h5>European Scientific Institute</h5>
+                    <p class="volunteer-location">Spain</p>
+                    <p class="volunteer-description">
+                        Peer-reviewing and contributing to scientific research for international academic publications.
+                    </p>
+                    <a href="https://euinstitute.net/" target="_blank" class="volunteer-link">
+                        Visit organization <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Engagement 3 -->
+            <div class="volunteer-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="volunteer-date">01/2022 – Present</div>
+                </div>
+                <div class="volunteer-content">
+                    <h4>Trainer</h4>
+                    <h5>Tech for Women Africa</h5>
+                    <p class="volunteer-location">Cameroon</p>
+                    <p class="volunteer-description">
+                        Providing training on climate change issues and strengthening the technical capacities of African women.
+                    </p>
+                    <a href="https://techwomencameroon.org/" target="_blank" class="volunteer-link">
+                        Visit organization <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Engagement 4 -->
+            <div class="volunteer-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <div class="volunteer-date">02/2025 – Present</div>
+                </div>
+                <div class="volunteer-content">
+                    <h4>Research Assistant</h4>
+                    <h5>Climate Mobility Action Network</h5>
+                    <p class="volunteer-location">London</p>
+                    <p class="volunteer-description">
+                        Supporting research on climate mobility and displacement related to environmental changes.
+                    </p>
+                    <a href="https://cmcanetwork.com/" target="_blank" class="volunteer-link">
+                        Visit organization <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Engagement 5 -->
+            <div class="volunteer-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="volunteer-date">07/2024 – Present</div>
+                </div>
+                <div class="volunteer-content">
+                    <h4>Expert Member</h4>
+                    <h5>UN Mountain Partnership</h5>
+                    <p class="volunteer-location">Italy</p>
+                    <p class="volunteer-description">
+                        Expert member of the United Nations partnership for the sustainable development of mountain regions.
+                    </p>
+                    <a href="https://www.fao.org/mountain-partnership/en" target="_blank" class="volunteer-link">
+                        Visit organization <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Languages Section -->
+    <section class="languages" id="languages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Languages</h2>
+                <p class="section-subtitle">
+                    Mastery of multiple languages for effective international communication
+                </p>
+            </div>
+            
+            <div class="languages-container">
+                <div class="language-item">
+                    <div class="language-info">
+                        <div class="language-name">
+                            <i class="fas fa-language"></i>
+                            <span>French</span>
+                        </div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-info">
+                        <div class="language-name">
+                            <i class="fas fa-language"></i>
+                            <span>Swahili</span>
+                        </div>
+                        <div class="language-level">Native</div>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-info">
+                        <div class="language-name">
+                            <i class="fas fa-language"></i>
+                            <span>English</span>
+                        </div>
+                        <div class="language-level">Professional proficiency</div>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="languages-summary">
+                <div class="summary-item">
+                    <div class="summary-number">3</div>
+                    <div class="summary-text">Languages mastered</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">2</div>
+                    <div class="summary-text">International languages</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">100%</div>
+                    <div class="summary-text">Multilingual communication</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-subtitle">
+                    Let's discuss your project and see how I can help you
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Name</h5>
+                            <p>Padona Matabaro Jason</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>Kivu, Goma, Bukavu, DRCongo</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Email</h5>
+                            <p><a href="mailto:padonamatabaro@gmail.com">padonamatabaro@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Phone</h5>
+                            <p><a href="tel:+243973358369">+243 973 358 369</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Padona Matabaro Jason</div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Padona Matabaro Jason. All rights reserved. Designed with <i class="fas fa-heart"></i> for a sustainable future</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <script>
+        // Navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you as soon as possible.');
+            this.reset();
+        });
+
+        // Animation functions
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }
+
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // Intersection Observer for animations
+        const aboutSection = document.getElementById('about');
+        const experienceSection = document.getElementById('experience');
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'about') {
+                        animateSkills();
+                    } else if (entry.target.id === 'experience') {
+                        animateTimeline();
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sectionObserver.observe(aboutSection);
+        sectionObserver.observe(experienceSection);
+
+        // Additional animations for new sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const volunteerCards = document.querySelectorAll('.volunteer-card');
+            const languageItems = document.querySelectorAll('.language-item');
+            const summaryItems = document.querySelectorAll('.summary-item');
+            const certificationItems = document.querySelectorAll('.certification-item');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        
+                        // Animate language bars
+                        if (entry.target.classList.contains('language-item')) {
+                            const progressBar = entry.target.querySelector('.language-progress');
+                            const width = progressBar.style.width;
+                            progressBar.style.width = '0';
+                            setTimeout(() => {
+                                progressBar.style.width = width;
+                            }, 300);
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe elements
+            volunteerCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+
+            languageItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+
+            summaryItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+
+            certificationItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
